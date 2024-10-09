@@ -13,7 +13,7 @@ import 'widgets/overlaped_btns.dart';
 class ClinicPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return DefaultTabController(//s
       length: 4, // Number of tabs
       child: Scaffold(
         body: Stack(

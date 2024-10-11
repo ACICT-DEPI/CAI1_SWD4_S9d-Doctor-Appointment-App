@@ -1,5 +1,6 @@
 import 'package:doc_appointment/models/book.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard(this.book, this.color, {super.key});
@@ -22,7 +23,7 @@ class BookCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                height: 60,
+                height: 70,
                 width: 50,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -83,7 +84,7 @@ class BookCard extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          Container(width:400 ,height:50 ,
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
                 color: const Color.fromARGB(189, 40, 94, 176),
@@ -121,9 +122,11 @@ class BookCard extends StatelessWidget {
                   size: 5,
                   color: Colors.white,
                 ),
-                Text(
-                  book.formattedEndTime,
-                  style: const TextStyle(color: Colors.white),
+                Flexible(
+                  child: Text(maxLines: 1,overflow: TextOverflow.ellipsis,
+                    book.formattedEndTime,
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),

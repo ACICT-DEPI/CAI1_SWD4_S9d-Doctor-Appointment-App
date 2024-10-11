@@ -1,3 +1,4 @@
+import 'package:doc_appointment/screens/tabs_screen.dart';
 import 'package:doc_appointment/widget/home_screen/header/current_location.dart';
 import 'package:doc_appointment/widget/home_screen/doctor_speciality/doctor_speciality.dart';
 

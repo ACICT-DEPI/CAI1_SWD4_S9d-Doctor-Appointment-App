@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:doc_appointment/mafdy_samuel/lib/login.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/widgets/appBar.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/widgets/customButton.dart';
 import 'package:doc_appointment/screens/tabs_screen.dart';
@@ -160,7 +161,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
                       onPressed: () {
                         print('account completed');
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => TabsScreen(),
+                          builder: (context) => LoginPage(),
                         ));
                         // Navigator.push(context, MaterialPageRoute(
                         //   builder: (BuildContext context) {

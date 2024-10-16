@@ -16,13 +16,7 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: const CustomAppBar(
-          title: 'My Bookings',
-          disableLeading: true,
-          actions: [
-            Icons.search,
-          ],
-        ),
+        appBar: AppBar(title: Center(child: Text("My Bookings")),),
         body: Column(
           children: [
             Container(

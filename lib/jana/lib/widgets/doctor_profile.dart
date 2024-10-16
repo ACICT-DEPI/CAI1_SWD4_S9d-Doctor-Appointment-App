@@ -80,7 +80,7 @@ class DoctorProfile extends StatelessWidget {
           "New York, United States",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 15,
+            fontSize: 12,
             color: Color(0xffB4B4B4),
           ),
         ),

@@ -5,7 +5,7 @@ final List<String> services = [
   'Hair Care',
   'Massage',
   'Eye Care',
-  'Eye Care',
-  'Eye Care',
-  'Eye Care'
+  'Skin Care',
+  'Dental',
+  'Hair Care'
 ];

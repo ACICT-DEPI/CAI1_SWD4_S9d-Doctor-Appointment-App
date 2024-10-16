@@ -3,10 +3,8 @@
 import 'package:doc_appointment/mafdy_samuel/lib/login.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/widgets/appBar.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/widgets/customButton.dart';
-import 'package:doc_appointment/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'createaccount.dart';
 import 'data/complete_data.dart';
 import 'data/create_account_data.dart';
 
@@ -19,9 +17,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
   final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext Createaccount) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: CustomAppBar(
           title: '',
           onpressed: () {
@@ -182,8 +178,7 @@ class _CompleteProfilePageState extends State<CompleteProfilePage> {
               ],
             ),
           ),
-        ),
-      ),
+        ),  
     );
   }
 }

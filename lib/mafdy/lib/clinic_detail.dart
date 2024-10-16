@@ -1,19 +1,18 @@
-import 'package:doc_appointment/jana/lib/widgets/nav_button.dart';
-import 'package:doc_appointment/mafdy/lib/doctor.dart';
 import 'package:doc_appointment/mafdy/lib/widgets/clinic_about.dart';
 import 'package:doc_appointment/mafdy/lib/widgets/clinic_gallery.dart';
 import 'package:doc_appointment/mafdy/lib/widgets/clinic_review.dart';
 import 'package:doc_appointment/mafdy/lib/widgets/clinic_tratment.dart';
 import 'package:flutter/material.dart';
 
-import 'doc_card.dart';
+import '../../jana/lib/book_doctor.dart';
 import 'doctors.dart';
 import 'widgets/overlaped_btns.dart';
+import 'package:doc_appointment/widget/home_screen/search_screen/doc_card.dart';
 
 class ClinicPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(//s
+    return DefaultTabController(
       length: 4, // Number of tabs
       child: Scaffold(
         body: Stack(
@@ -33,9 +32,7 @@ class ClinicPage extends StatelessWidget {
                       Top: 35,
                       Left: 20,
                       ico: Icons.keyboard_backspace,
-                      onpressFn: () {
-                        Navigator.pop(context);
-                      },
+                      onpressFn: () {Navigator.pop(context);},
                     ),
                     PositionBtns(
                       Top: 35,
@@ -180,27 +177,20 @@ class ClinicPage extends StatelessWidget {
                         Center(child: TerminatesFn()),
                         SingleChildScrollView(
                           child: Column(
-                            children: doctors
-                                .map((doc) => Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 8.0,
-                                          horizontal:
-                                              16.0), // Add horizontal padding
-                                      child: ConstrainedBox(
-                                        constraints: BoxConstraints(
-                                          maxWidth: MediaQuery.of(context)
-                                                  .size
-                                                  .width -
-                                              32, // Ensure the card fits within the screen width
-                                        ),
-                                        child: DocCard(doc),
-                                      ),
-                                    ))
-                                .toList(),
+                            children: doctors.map((doc) => Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Add horizontal padding
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxWidth: MediaQuery.of(context).size.width - 32, // Ensure the card fits within the screen width
+                                ),
+                                child: DocCard(doc),
+                              ),
+                            )).toList(),
                           ),
                         ),
+
                         Center(child: clinicGallery()),
-                        Center(child: Review(context, doctors.cast<Doctor>())),
+                        Center(child: Review(context ,doctors)),
                         Center(child: ClinicAbout()),
                       ],
                     ),
@@ -208,26 +198,33 @@ class ClinicPage extends StatelessWidget {
                 ],
               ),
             ),
-           Spacer(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  right: 0,
-
-                  child: NavButton(
-                    onPressed: () {
-                      print('pressed');
-                    },
-
-                    title: 'Book Appointment',
-
+            Positioned(
+              top: 820,
+              left: 7,
+              right: 7,
+              bottom: 15,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => BookDoctor()),
+);
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-              ],
+                child: const Text(
+                  'Book Appointment',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

@@ -2,12 +2,13 @@ import 'package:doc_appointment/mafdy_samuel/lib/complete.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/createaccount.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/login.dart';
 import 'package:doc_appointment/mafdy_samuel/lib/onboardScreens.dart';
-import 'package:doc_appointment/screens/home_screen.dart';
 import 'package:doc_appointment/screens/tabs_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+import 'jana/lib/doc_details.dart';
 
 void main() async{
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -60,6 +61,7 @@ class _MyAppState extends State<MyApp> {
       "signup":(context) => createaccount(),
       "completeprofile":(context) => CompleteProfilePage(),
       "onboard":(context) => OnBoardScreen(),
+      "doctordetails":(context) => DoctorDetails(),
       "homepage":(context) => TabsScreen()},
     );
   }

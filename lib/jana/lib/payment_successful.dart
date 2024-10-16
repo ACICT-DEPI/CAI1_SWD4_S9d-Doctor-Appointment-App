@@ -5,6 +5,8 @@ import 'package:doc_appointment/jana/lib/widgets/row_info.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../screens/tabs_screen.dart';
+
 class Successful extends StatelessWidget {
   Successful({super.key});
 
@@ -99,7 +101,7 @@ class Successful extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PatientDetails()));
+                            builder: (context) => TabsScreen()));
                   },
                 ),
               ],

@@ -45,8 +45,15 @@ dependencies:
   firebase_messaging: ^15.1.0
   firebase_auth: ^5.2.0
   google_sign_in: ^6.2.1
+  flutter_launcher_icons: ^0.14.1
 
 dev_dependencies:
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/iconapp.jpg"
+
   flutter_test:
     sdk: flutter
 
@@ -109,6 +116,7 @@ flutter:
     - assets/images/Image (10).png
     - assets/images/
     - assets/clinic/
+    - assets/clinic/Medical-Clinic.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

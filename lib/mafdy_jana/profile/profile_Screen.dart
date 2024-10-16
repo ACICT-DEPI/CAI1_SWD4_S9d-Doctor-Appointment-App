@@ -9,20 +9,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-void main() {
-  runApp(ProfileScreen());
-}
-
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
-          title: 'Profile',
-          onpressed: () {},
-        ),
-        body: ProfileBody(),
-      
+      appBar: CustomAppBar(
+        title: 'Profile',
+        onpressed: () {},
+      ),
+      body: ProfileBody(),
     );
   }
 }
@@ -38,16 +33,13 @@ class ProfileBody extends StatelessWidget {
           child: Column(
             children: [
               Stack(
-                alignment:
-                    Alignment.bottomRight, // Align the button at bottom-right
+                alignment: Alignment.bottomRight, // Align the button at bottom-right
                 children: [
                   // Circular profile image
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage:
-                        AssetImage('assets/images/doctor2.jpeg'), // Profile image here
+                    foregroundImage: AssetImage('assets/man1.png'), // Profile image here
                   ),
-
                   Positioned(
                     bottom: 0,
                     right: 0,
@@ -55,15 +47,16 @@ class ProfileBody extends StatelessWidget {
                     left: 75,
                     child: Container(
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.white, // White border
-                            width: 3.0,
-                          ),
-                          color: Colors.blue),
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.white, // White border
+                          width: 3.0,
+                        ),
+                        color: Colors.blue,
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 1, vertical: 0),
+                          horizontal: 1, vertical: 0),
                         child: IconButton(
                           icon: Icon(
                             Icons.edit,
@@ -90,7 +83,6 @@ class ProfileBody extends StatelessWidget {
           ),
         ),
         Divider(),
-
         // List of options
         ProfileOption(
           icon: Icons.person_outline,
@@ -149,7 +141,9 @@ class ProfileBody extends StatelessWidget {
             GoogleSignIn googleSignIn = GoogleSignIn();
             googleSignIn.disconnect();
             await FirebaseAuth.instance.signOut();
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginPage()));
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => LoginPage())
+            );
           },
         ),
       ],

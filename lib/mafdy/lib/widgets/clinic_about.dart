@@ -17,7 +17,7 @@ Widget ClinicAbout() {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              'About clinic About clinic About clinic About clinic\nAbout clinic About clinic About clinic About clinic\nAbout clinic About clinic About clinic About clinic\nAbout clinic About clinic About clinic About clinic\nAbout clinic About clinic About clinic About clinic\n ',
+              'About Serenity Wellness Clinic\nWelcome to Serenity Wellness Clinic,\n where your health and well-being are our top\n priorities. We are dedicated to providing \nexceptional medical care, ensuring that \nevery patient feels comfortable, valued, and\nsupported throughout their health journey.',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
             ),
           ],

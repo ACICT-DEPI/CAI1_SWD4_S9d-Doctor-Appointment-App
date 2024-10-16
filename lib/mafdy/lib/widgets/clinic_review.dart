@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../doc_card.dart';
-import '../doctor.dart';
+import '../../../models/doctor.dart';
+import '../../../widget/home_screen/search_screen/doc_card.dart';
 import 'filters.dart';
 
 Widget Review(BuildContext context, List<Doctor> doctors) {

@@ -16,33 +16,49 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController Pass = TextEditingController();
   TextEditingController email = TextEditingController();
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-  Future signInWithGoogle() async {
-    // Trigger the authentication flow
+  Future<void> signInWithGoogle() async {
+  try {
+    // Trigger the Google authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
+    // If the user cancels the sign-in flow, googleUser will be null
     if (googleUser == null) {
+      print('Sign in aborted by user');
       return;
     }
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
+    // Create a new credential using the accessToken and idToken
+    final OAuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
     );
 
-    // Once signed in, return the UserCredential
-    await FirebaseAuth.instance.signInWithCredential(credential);
-    Navigator.push(context, MaterialPageRoute(
-      builder: (BuildContext context) {
-        return TabsScreen();
-      },
-    ));
-  }
+    // Sign in to Firebase with the credential
+    UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
 
+    // The user is now signed in
+    User? user = userCredential.user;
+    print('Successfully signed in with Google: ${user?.displayName}');
+    
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'account-exists-with-different-credential') {
+      // The account already exists with a different credential
+      print('Account exists with a different credential');
+    } else if (e.code == 'invalid-credential') {
+      // The credential is invalid or expired
+      print('Invalid credential');
+    } else {
+      // Other FirebaseAuthException
+      print('FirebaseAuth error: ${e.message}');
+    }
+  } catch (e) {
+    // Other exceptions, such as network issues
+    print('Error signing in with Google: $e');
+  }
+}
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

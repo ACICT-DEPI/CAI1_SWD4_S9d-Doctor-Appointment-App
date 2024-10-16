@@ -3,6 +3,8 @@ import 'package:doc_appointment/screens/home_screen.dart';
 import 'package:doc_appointment/screens/my_bookings_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/maps_screen.dart';
+
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -22,6 +24,9 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     Widget activeScreen = const HomeScreen();
+    if (_selectedScreenIndex == 1) {
+      activeScreen = MapsScreen();
+    }
     if (_selectedScreenIndex == 2) {
       activeScreen = const MyBookingsScreen();
     }

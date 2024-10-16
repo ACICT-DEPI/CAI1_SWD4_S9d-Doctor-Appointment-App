@@ -6,6 +6,8 @@ import 'package:doc_appointment/widget/home_screen/nearby_hospitals/nearby_hospi
 import 'package:doc_appointment/widget/home_screen/upcomming_schedule_part/upcomming_schedule.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/home_screen/header/search_bar.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              SearchBar(),
+              SearchBarT(),
               SizedBox(
                 height: 30,
               ),
@@ -40,6 +42,7 @@ class HomeScreen extends StatelessWidget {
                 height: 30,
               ),
               NearbyHospitals(),
+              
             ],
           ),
         ),
